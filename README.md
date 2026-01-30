@@ -92,7 +92,7 @@ I filtered the results to skills that were present in at least 3 of the top 10 j
 |pandas       |3/10      |
 
 
-###In-Demand Skills for Data Analysis
+### In-Demand Skills for Data Analysis
 Now that we know what the top jobs are looking for, let's broaden the scope into all job listings for Data Analyst roles. Here we look for the top 5 results.
 
 ```sql
