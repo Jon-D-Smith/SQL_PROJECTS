@@ -10,8 +10,8 @@ FROM job_postings_fact
 INNER JOIN skills_job_dim AS skills_job ON skills_job.job_id = job_postings_fact.job_id 
 INNER JOIN skills_dim AS skills ON skills.skill_id = skills_job.skill_id
 WHERE
-    job_postings_fact.job_title_short = 'Data Analyst' AND 
-    job_postings_fact.job_location IN ('Denton, TX', 'Lewisville, TX')
+    job_postings_fact.job_title_short = 'Data Analyst'
+    -- AND job_postings_fact.job_location IN ('Denton, TX', 'Lewisville, TX')
 GROUP BY 
     skills.skills
 ORDER BY
