@@ -41,7 +41,7 @@ Here's what I found from the top data analyst jobs in 2023:
 - **Multiple Employers:** In these positions we only find one repeat company in our results showing a wide array of companies providing high paying data analyst roles
 - **Large outlier:** Jobs 2-9 show a steady increase in pay, but the highest paying job appears to be a large outlier. The average salary for the top 10 jobs appears to be $264,506.15, but when we remove the role offered by Mantys the average for the next 10 companies is $216,506.15.
 
-![Top paying roles](assets\1_top_paying_roles.JPG)
+![Top paying roles](https://github.com/Jon-D-Smith/SQL_PROJECTS/blob/main/assets/1_top_paying_roles.JPG)
 *Bar graph visualizing the salary for the top 10 highest paying data analysts positions. The graph was created in Tableau.*
 
 
@@ -92,7 +92,7 @@ I filtered the results to skills that were present in at least 3 of the top 10 j
 |pandas       |3/10      |
 
 
-###In-Demand Skills for Data Analysis
+### In-Demand Skills for Data Analysis
 Now that we know what the top jobs are looking for, let's broaden the scope into all job listings for Data Analyst roles. Here we look for the top 5 results.
 
 ```sql
