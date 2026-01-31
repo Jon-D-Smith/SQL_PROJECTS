@@ -45,7 +45,7 @@ Here's what I found from the top data analyst jobs in 2023:
 *Bar graph visualizing the salary for the top 10 highest paying data analysts positions. The graph was created in Tableau.*
 
 
-### Top Paying Skills
+### Most Requested Skills in Highest Salary Roles
 The second task was to find which skills were mentioned in the job listings for the top 10 paying analyst roles.
 ```sql
 WITH top_paying_jobs AS (
@@ -73,23 +73,13 @@ INNER JOIN skills_job_dim AS skills_job ON skills_job.job_id = top_paying_jobs.j
 INNER JOIN skills_dim AS skills ON skills.skill_id = skills_job.skill_id
 GROUP BY
     skills
-HAVING 
-    COUNT(skills) > 2
 ORDER BY
     skill_frequency DESC;
 ```
 
 **Results:**
-I filtered the results to skills that were present in at least 3 of the top 10 job listings. The most common items were SQL, Python, and Tableau.
-|Skills       |Frequency |
-|-------------|----------|
-|SQL          |8/10      |
-|Python       |7/10      |
-|Tableau      |6/10      |
-|r            |4/10      |
-|snowflake    |3/10      |
-|Excel        |3/10      |
-|pandas       |3/10      |
+The most common skills in top postitions for Data Analyst roles are SQL, Python, and Tableau.
+![Most requested skills in the top 10 paying roles](https://github.com/Jon-D-Smith/SQL_PROJECTS/blob/main/assets/2_top_10_skills_requested.JPG)
 
 
 ### In-Demand Skills for Data Analysis
@@ -172,7 +162,6 @@ INNER JOIN skills_dim  ON skills_dim.skill_id = skills_job_dim.skill_id
 WHERE
     job_postings_fact.job_title_short = 'Data Analyst'
     AND job_postings_fact.salary_year_avg IS NOT NULL 
-    AND job_postings_fact.job_work_from_home = True
 GROUP BY 
     skills_dim.skill_id
 HAVING
@@ -180,34 +169,11 @@ HAVING
 ORDER BY 
     avg_salary DESC,
     demand_count DESC 
-LIMIT 25;
+;
 ```
 
 
-| skill_id | skills      | demand_count | avg_salary |
-|----------|-------------|--------------|------------|
-| 8        | go          | 27           | 115320     |
-| 97       | hadoop      | 22           | 113193     |
-| 80       | snowflake   | 37           | 112948     |
-| 74       | azure       | 34           | 111225     |
-| 76       | aws         | 32           | 108317     |
-| 79       | oracle      | 37           | 104534     |
-| 185      | looker      | 49           | 103795     |
-| 1        | python      | 236          | 101397     |
-| 5        | r           | 148          | 100499     |
-| 182      | tableau     | 230          | 99288      |
-| 186      | sas         | 63           | 98902      |
-| 7        | sas         | 63           | 98902      |
-| 61       | sql server  | 35           | 97786      |
-| 183      | power bi    | 110          | 97431      |
-| 0        | sql         | 398          | 97237      |
-| 215      | flow        | 28           | 97200      |
-| 199      | spss        | 24           | 92170      |
-| 22       | vba         | 24           | 88783      |
-| 196      | powerpoint  | 58           | 88701      |
-| 181      | excel       | 256          | 87288      |
-| 192      | sheets      | 32           | 86088      |
-| 188      | word        | 48           | 82576      |
+![Skill Frequency in Job Postings vs. Average Salary Per Skill](https://github.com/Jon-D-Smith/SQL_PROJECTS/blob/main/assets/5_optimal_skills_to_salary.JPG)
 
 **Results:**
-We see that knowing sql(sql and sql server), analytics languages (python, sas, r), web technologies (go, python), cloud technologies(Azure and AWS), spreadsheets (Excel and sheets), and visualization software (Tableau, power bi, and powerpoint) are all in demand skills for data analysts. Utilizing any combination of these technologies and skills should greatly increase our desirability in the data field.
+Specialized skills like Solidity or Couchbase can offer a higher salary opportunity (Between ~$160K-179K) but have a small frequency in job postings. Higher demand skills like SQL, Excel, Python, and Tableau offer a smaller salary (Between ~$86K-$101K) but are included in thousands more opportunities than the previously mentioned specialized skills.
