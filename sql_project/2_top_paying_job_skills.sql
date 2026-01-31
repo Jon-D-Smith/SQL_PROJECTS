@@ -26,7 +26,8 @@ FROM top_paying_jobs
 INNER JOIN skills_job_dim AS skills_job ON skills_job.job_id = top_paying_jobs.job_id 
 INNER JOIN skills_dim AS skills ON skills.skill_id = skills_job.skill_id
 ORDER BY
-    top_paying_jobs.salary_year_avg DESC;
+    top_paying_jobs.salary_year_avg DESC
+    ;
 
 
 -- Getting raw numbers for each skill
@@ -55,7 +56,7 @@ INNER JOIN skills_job_dim AS skills_job ON skills_job.job_id = top_paying_jobs.j
 INNER JOIN skills_dim AS skills ON skills.skill_id = skills_job.skill_id
 GROUP BY
     skills
-HAVING 
-    COUNT(skills) > 2
 ORDER BY
-    skill_frequency DESC;
+    skill_frequency DESC
+LIMIT 10
+    ;
